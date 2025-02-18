@@ -19,7 +19,3 @@ A simple workout tracking app built using the **MERN stack** (MongoDB, Express, 
 - **Backend:** Node.js, Express.js, MongoDB (Mongoose)
 - **Frontend:** React
 - **Database:** MongoDB
-
----
-
-## 📂 Project Structure
