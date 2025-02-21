@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import Workouts from "./pages/workouts";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <></>;
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/workouts" element={<Workouts />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
