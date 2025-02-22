@@ -9,8 +9,10 @@ const PORT = process.env.PORT || 3000;
 const URI = process.env.MONGO_URI;
 
 const app = express();
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 // middleware to log the request path and method
 app.use((req, res, next) => {
