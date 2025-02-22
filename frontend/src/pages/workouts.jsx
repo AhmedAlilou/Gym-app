@@ -3,7 +3,7 @@ import React from "react";
 
 // components
 import Navbar from "../components/navbar";
-import Workoutcards from "../components/workoutcards";
+import Workoutcards from "../components/workouts/workoutcards.jsx";
 
 function Workouts() {
   return (

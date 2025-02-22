@@ -1,4 +1,5 @@
 import React from "react";
+import Exercisetitle from "./exercisetitle";
 
 function Exercise(props) {
   const workout = props.workout;
@@ -6,13 +7,13 @@ function Exercise(props) {
     <div className="exercises">
       {workout.exercises.map((exercises) => (
         <div key={exercises._id} className="exercise">
-          <h1 className="font-bold text-[1.1rem]">{exercises.name}</h1>
+          <Exercisetitle name={exercises.name} />
           <div className="exercise-info">
-            {exercises.sets.map((set) => (
-              <div key={set._id} className="set">
-                <p>
-                  {set.reps} reps {set.weight && `at ${set.weight} lbs`}
-                </p>
+            {exercises.sets.map((set, index) => (
+              <div key={index} className="set">
+                <p className="mb-2">set {index + 1}</p>
+                <p>{set.reps} reps</p>
+                <p>{set.weight} kg</p>
               </div>
             ))}
           </div>

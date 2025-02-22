@@ -1,7 +1,6 @@
 import React from "react";
-import Workoutsidebar from "../components/workoutsidebar";
-import Exercise from "../components/exercise";
-import Exercises from "../components/exercises";
+import Workoutsidebar from "./workoutsidebar";
+import Exercise from "./exercise";
 
 function Workoutcard(props) {
   const workout = props.workout;
