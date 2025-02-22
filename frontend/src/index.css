@@ -11,3 +11,28 @@ body {
   margin-top: 2vh;
   margin-left: 2vw;
 }
+
+.exercises {
+  background-color: #2d2d2d;
+  width: 80%;
+  margin-top: 2%;
+}
+
+.exercise {
+  background-color: #3b2a75;
+  width: 100%;
+  height: 80%;
+  margin-bottom: 10px;
+
+  align-items: center;
+  text-align: left;
+  padding: 10px;
+}
+
+.exercise-info {
+  margin-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5%;
+}

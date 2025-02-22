@@ -12,20 +12,11 @@ function Workoutcards() {
       });
   }, []);
 
-  useEffect(() => {
-    workouts.forEach((workout) => console.log(workout.exercises));
-  }, [workouts]);
-
   return (
     <div className="workouts">
       {workouts.map((workout) => (
         <div key={workout._id}>
-          <Workoutcard
-            title={workout.title}
-            description={workout.description}
-            exercises={workout.exercises}
-            id={workout._id}
-          />
+          <Workoutcard workout={workout} />
         </div>
       ))}
     </div>
