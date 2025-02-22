@@ -1,10 +1,12 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 
 function Home() {
   return (
     <>
       <Navbar />
+      <div className="title">Home</div>
     </>
   );
 }
