@@ -1,15 +1,13 @@
 import React from "react";
-import Exercise from "../components/exercise";
+import Exercise from "./exercise";
 
 function Exercises(props) {
+  const workout = props.workout;
   return (
     <div className="exercises">
-      <h1 className="font-bold mt-[1vh] mb-[1vh] ml-[1vw]">Exercises</h1>
-      <Exercise workout={workout} />
-      <div className="exercise">
-        <h1 className="font-bold text-[1.1rem]"></h1>
-        <div className="exercise-info"></div>
-      </div>
+      {workout.exercises.map((exercise) => (
+        <Exercise key={exercise._id} exercise={exercise} />
+      ))}
     </div>
   );
 }
