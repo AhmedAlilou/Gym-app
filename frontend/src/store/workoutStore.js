@@ -9,5 +9,20 @@ export const useWorkoutStore = create((set) => ({
     })
     .catch((err) => {
       console.log(err);
+    }),
+
+  deleteWorkout: (workoutid) => {
+    fetch(`http://localhost:3000/workouts/${workoutid}`, {
+      method: "DELETE"
     })
+      .then((res) => {
+        res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 }));

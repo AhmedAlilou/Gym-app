@@ -1,20 +1,10 @@
 import React from "react";
+import { useWorkoutStore } from "../../store/workoutStore.js";
 
 function Workoutsidebar(props) {
-  const workout = props.workout;
+  const deleteWorkout = useWorkoutStore((state) => state.deleteWorkout);
   const handleDelete = () => {
-    fetch(`http://localhost:3000/workouts/${workout._id}`, {
-      method: "DELETE"
-    })
-      .then((res) => {
-        res.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    useWorkoutStore.getState().deleteWorkout(props.workout._id);
   };
   return (
     <div className="bg-amber-600 w-[16%]">
