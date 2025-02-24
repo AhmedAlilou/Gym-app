@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Workoutcard from "./workoutcard";
+import { useWorkoutStore } from "../../store/workoutStore.js";
 
 function Workoutcards() {
-  const [workouts, setWorkouts] = useState([]);
-
+  const { workouts, getWorkouts } = useWorkoutStore();
   useEffect(() => {
-    fetch("http://localhost:3000/workouts")
-      .then((res) => res.json())
-      .then((data) => {
-        setWorkouts(data);
-      });
+    getWorkouts;
   }, []);
-
   return (
     <div className="workouts">
       {workouts.map((workout) => (
