@@ -6,13 +6,11 @@ function Workoutcards() {
   const { workouts, getWorkouts } = useWorkoutStore();
   useEffect(() => {
     getWorkouts;
-  }, []);
+  }, [getWorkouts]);
   return (
     <div className="workouts">
       {workouts.map((workout) => (
-        <div key={workout._id}>
-          <Workoutcard workout={workout} />
-        </div>
+        <Workoutcard key={workout._id} workout={workout} />
       ))}
     </div>
   );

@@ -1,8 +1,10 @@
 import { create } from "zustand";
 
+const API_URL = "http://localhost:3000/workouts";
+
 export const useWorkoutStore = create((set) => ({
   workouts: [],
-  getWorkouts: fetch("http://localhost:3000/workouts")
+  getWorkouts: fetch(`${API_URL}`)
     .then((res) => res.json())
     .then((data) => {
       set({ workouts: data });
@@ -12,7 +14,7 @@ export const useWorkoutStore = create((set) => ({
     }),
 
   deleteWorkout: (workoutid) => {
-    fetch(`http://localhost:3000/workouts/${workoutid}`, {
+    fetch(`${API_URL}/${workoutid}`, {
       method: "DELETE"
     })
       .then((res) => {
