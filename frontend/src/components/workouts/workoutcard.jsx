@@ -12,8 +12,6 @@ function Workoutcard(props) {
         <Exercises workout={workout} />
         <Workoutsidebar workout={workout} />
       </div>
-
-      <p>{workout._id}</p>
     </div>
   );
 }

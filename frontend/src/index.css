@@ -44,13 +44,23 @@ body {
   width: 20vw;
   margin-left: 2vw;
   margin-right: 2vw;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  padding: 1vw;
 }
 
 .option {
   display: flex;
   justify-content: stretch;
+  align-items: center;
   height: 10%;
   width: 100%;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #3b2a75;
 }
 
 .icon {

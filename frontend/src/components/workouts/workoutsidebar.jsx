@@ -3,6 +3,7 @@ import { useWorkoutStore } from "../../store/workoutStore.js";
 import { FaDumbbell } from "react-icons/fa6";
 import { FaRegEdit, FaShareAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { HiDocumentDuplicate } from "react-icons/hi2";
 
 function Workoutsidebar(props) {
   const deleteWorkout = useWorkoutStore((state) => state.deleteWorkout);
@@ -17,16 +18,21 @@ function Workoutsidebar(props) {
       </button>
       <button className="option">
         <FaRegEdit className="icon" />
-        Edit Workout
+        Edit
       </button>
       <button className="option">
         <FaShareAlt className="icon" />
-        Share Workout
+        Share
       </button>
       <button onClick={handleDelete} className="option">
         <MdDelete className="icon" />
-        Delete Workout
+        Delete
       </button>
+      <button onClick={handleDelete} className="option">
+        <HiDocumentDuplicate className="icon" />
+        Duplicate
+      </button>
+      <div>Workout ID: {props.workout._id}</div>
     </div>
   );
 }
