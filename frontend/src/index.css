@@ -12,6 +12,24 @@ body {
   margin-left: 2vw;
 }
 
+/* text-white  h-[6vh] w-[6vh] align-middle rounded-full ml-[2vw] mt-[2vh] add the following to addworkoutclass */
+.addworkout {
+  background-color: #543da2;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2vw;
+  margin-top: 2vh;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50%;
+  display: flex;
+  color: white;
+}
+
+.addworkout:hover {
+  background-color: #782aff;
+}
+
 .exercises {
   background-color: #2d2d2d;
   width: 80%;
@@ -47,7 +65,7 @@ body {
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
-  padding: 1vw;
+  padding: 1.5vw;
 }
 
 .option {
