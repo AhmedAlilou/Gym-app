@@ -4,21 +4,33 @@ const API_URL = "http://localhost:3000/workouts";
 
 export const useWorkoutStore = create((set) => ({
   workouts: [],
-  getWorkouts: fetch(`${API_URL}`)
-    .then((res) => res.json())
-    .then((data) => {
-      set({ workouts: data });
-    })
-    .catch((err) => {
-      console.log(err);
-    }),
+  getWorkouts: () => {
+    fetch(`${API_URL}`)
+      .then((res) => res.json())
+      .then((data) => {
+        set({ workouts: data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
 
   deleteWorkout: (workoutid) => {
     fetch(`${API_URL}/${workoutid}`, {
       method: "DELETE"
     })
       .then((res) => {
-        res.json();
+        const response = res.json();
+
+        set((state) => {
+          console.log(response, state.workouts);
+          return {
+            workouts: state.workouts.filter(
+              (workout) => workout.id !== workoutid
+            )
+          };
+        });
+        return response;
       })
       .then((data) => {
         console.log(data);
@@ -29,7 +41,7 @@ export const useWorkoutStore = create((set) => ({
   },
   newWorkout: false,
   setNewWorkout: (value) => {
-    set({ newWorkout: !value });
+    set({ newWorkout: value });
   },
   addNewWorkout: (name, description, exercises) => {
     fetch(API_URL, {

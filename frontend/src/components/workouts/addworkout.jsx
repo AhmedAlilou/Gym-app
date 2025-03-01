@@ -1,9 +1,12 @@
 import React from "react";
 import { IoMdAddCircle } from "react-icons/io";
+import { useWorkoutStore } from "../../store/workoutStore";
 
 function Addworkout() {
+  const { newWorkout, setNewWorkout } = useWorkoutStore();
   const handleAddWorkout = () => {
-    console.log("Add workout");
+    setNewWorkout(true);
+    console.log(newWorkout);
   };
   return (
     <button className="addworkout" onClick={handleAddWorkout}>

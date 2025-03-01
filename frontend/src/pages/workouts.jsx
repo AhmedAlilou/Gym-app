@@ -5,6 +5,7 @@ import React from "react";
 import Navbar from "../components/navbar";
 import Addworkout from "../components/workouts/addworkout.jsx";
 import Workoutcards from "../components/workouts/workoutcards.jsx";
+import Workoutmodal from "../components/workouts/workoutmodal.jsx";
 
 function Workouts() {
   return (
@@ -16,6 +17,7 @@ function Workouts() {
       </div>
 
       <Workoutcards />
+      <Workoutmodal />
     </>
   );
 }

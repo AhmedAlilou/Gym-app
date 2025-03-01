@@ -5,8 +5,8 @@ import { useWorkoutStore } from "../../store/workoutStore.js";
 function Workoutcards() {
   const { workouts, getWorkouts } = useWorkoutStore();
   useEffect(() => {
-    getWorkouts;
-  }, [getWorkouts]);
+    getWorkouts();
+  }, [workouts]);
   return (
     <div className="workouts">
       {workouts.map((workout) => (
