@@ -26,5 +26,22 @@ export const useWorkoutStore = create((set) => ({
       .catch((err) => {
         console.log(err);
       });
+  },
+  newWorkout: false,
+  setNewWorkout: (value) => {
+    set({ newWorkout: !value });
+  },
+  addNewWorkout: (name, description, exercises) => {
+    fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: name,
+        description: description,
+        exercises: exercises
+      })
+    });
   }
 }));
