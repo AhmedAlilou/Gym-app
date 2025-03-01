@@ -6,7 +6,6 @@ import { MdDelete } from "react-icons/md";
 import { HiDocumentDuplicate } from "react-icons/hi2";
 
 function Workoutsidebar(props) {
-  const deleteWorkout = useWorkoutStore((state) => state.deleteWorkout);
   const handleDelete = () => {
     useWorkoutStore.getState().deleteWorkout(props.workout._id);
   };

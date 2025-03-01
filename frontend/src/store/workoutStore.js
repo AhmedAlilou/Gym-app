@@ -19,21 +19,16 @@ export const useWorkoutStore = create((set) => ({
     fetch(`${API_URL}/${workoutid}`, {
       method: "DELETE"
     })
-      .then((res) => {
-        const response = res.json();
-
+      .then((res) => res.json())
+      .then((data) => {
         set((state) => {
-          console.log(response, state.workouts);
+          console.log(data, state.workouts);
           return {
             workouts: state.workouts.filter(
-              (workout) => workout.id !== workoutid
+              (workout) => workout._id !== data.id
             )
           };
         });
-        return response;
-      })
-      .then((data) => {
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
