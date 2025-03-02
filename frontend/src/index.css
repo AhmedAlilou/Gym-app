@@ -14,7 +14,7 @@ body {
 
 /* text-white  h-[6vh] w-[6vh] align-middle rounded-full ml-[2vw] mt-[2vh] add the following to addworkoutclass */
 .addworkout {
-  background-color: #543da2;
+  background-color: #3b2a75;
   justify-content: center;
   align-items: center;
   margin-left: 2vw;
@@ -27,7 +27,9 @@ body {
 }
 
 .addworkout:hover {
-  background-color: #782aff;
+  transition: 0.3s;
+  background-color: #543da2;
+  cursor: pointer;
 }
 
 .exercises {
@@ -78,35 +80,11 @@ body {
 }
 
 .option:hover {
+  transition: 0.3s;
   background-color: #3b2a75;
 }
 
 .icon {
   width: 10%;
   height: 50%;
-}
-
-.modal {
-  z-index: 1000;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modalbox {
-  background-color: rgba(25, 25, 31, 1);
-  width: 50vw;
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2%;
-  color: #fff;
 }

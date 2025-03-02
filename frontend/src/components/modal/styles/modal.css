@@ -1,0 +1,45 @@
+.modal {
+  z-index: 1000;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalbox {
+  background-color: rgba(25, 25, 31, 1);
+  width: 80vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+  color: #fff;
+}
+
+.close {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+  background-color: #3b2a75;
+  width: 5vh;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.close:hover {
+  transition: 0.3s;
+  background-color: #543da2;
+}

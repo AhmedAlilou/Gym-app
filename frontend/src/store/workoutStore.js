@@ -21,14 +21,9 @@ export const useWorkoutStore = create((set) => ({
     })
       .then((res) => res.json())
       .then((data) => {
-        set((state) => {
-          console.log(data, state.workouts);
-          return {
-            workouts: state.workouts.filter(
-              (workout) => workout._id !== data.id
-            )
-          };
-        });
+        set((state) => ({
+          workouts: state.workouts.filter((workout) => workout._id !== data.id)
+        }));
       })
       .catch((err) => {
         console.log(err);
