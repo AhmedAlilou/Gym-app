@@ -7,21 +7,21 @@ function Workoutcard(props) {
   const [isExpanded, setIsExpanded] = useState(false);
   const workout = props.workout;
 
+  const chevronClasses = isExpanded
+    ? "transition-transform duration-300 rotate-180"
+    : "transition-transform duration-300";
+
   return (
-    <div className="workout text-white bg-[#333] p-4 rounded-3xl w-[90vw] mb-[2vh] ml-[2vw]">
+    <div className="workout text-white bg-neutral-800 p-4 rounded-3xl w-[90vw] mb-2 ml-8">
       <div
         className="flex justify-between items-center cursor-pointer"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div>
-          <h2 className="font-bold text-[1.6rem]">{workout.title}</h2>
+          <h2 className="font-bold text-2xl">{workout.title}</h2>
           <p>{workout.description}</p>
         </div>
-        <FaChevronDown
-          className={`transition-transform duration-300 ${
-            isExpanded ? "rotate-180" : ""
-          }`}
-        />
+        <FaChevronDown className={chevronClasses} />
       </div>
 
       {isExpanded && (
