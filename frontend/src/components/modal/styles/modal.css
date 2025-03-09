@@ -15,6 +15,7 @@
   background-color: rgba(25, 25, 31, 1);
   width: 80vw;
   height: 80vh;
+  max-height: 80vh; /* Ensure modal doesn't grow */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -23,6 +24,34 @@
   color: #fff;
   position: relative;
   gap: 2%;
+  overflow-y: auto; /* Change from hidden to auto */
+}
+
+/* Add styles for the content container */
+.modalbox > div:not(.modal-title):not(.close) {
+  width: 100%;
+  max-height: calc(80vh - 150px); /* Account for title and save button */
+  overflow-y: auto;
+  padding-right: 1rem; /* Prevent content from touching scrollbar */
+}
+
+/* Add custom scrollbar styling */
+.modalbox::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modalbox::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.modalbox::-webkit-scrollbar-thumb {
+  background: #3b2a75;
+  border-radius: 4px;
+}
+
+.modalbox::-webkit-scrollbar-thumb:hover {
+  background: #543da2;
 }
 
 .modal-title {
@@ -58,6 +87,7 @@
   align-items: center;
   gap: 2%;
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .saveworkout {
