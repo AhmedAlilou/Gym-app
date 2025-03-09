@@ -1,7 +1,7 @@
 import React from "react";
 import Titleform from "./titleform";
 import Descriiptionform from "./descriptionform";
-import Exercisesform from "./exercisesform";
+import Exercisesforms from "./exercisesforms";
 function Modalform() {
   return (
     <div className="w-full px-8">
@@ -9,7 +9,7 @@ function Modalform() {
         <Titleform />
         <Descriiptionform />
       </form>
-      <Exercisesform />
+      <Exercisesforms />
     </div>
   );
 }

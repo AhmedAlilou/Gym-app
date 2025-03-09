@@ -51,6 +51,15 @@
   background-color: #543da2;
 }
 
+.exercise-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  width: 100%;
+}
+
 .saveworkout {
   background-color: #3b2a75;
   width: 20%;
