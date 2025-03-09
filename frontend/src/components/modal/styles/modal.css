@@ -25,6 +25,8 @@
   position: relative;
   gap: 2%;
   overflow-y: auto; /* Change from hidden to auto */
+  scrollbar-width: thin;
+  scrollbar-color: #3b2a75 rgba(0, 0, 0, 0.2);
 }
 
 /* Add styles for the content container */
@@ -35,23 +37,28 @@
   padding-right: 1rem; /* Prevent content from touching scrollbar */
 }
 
-/* Add custom scrollbar styling */
+/* Custom scrollbar styling */
 .modalbox::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .modalbox::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 10px 0;
 }
 
 .modalbox::-webkit-scrollbar-thumb {
   background: #3b2a75;
-  border-radius: 4px;
+  border-radius: 8px;
+  border: 2px solid rgba(25, 25, 31, 1);
+  min-height: 40px;
 }
 
 .modalbox::-webkit-scrollbar-thumb:hover {
   background: #543da2;
+  cursor: pointer;
 }
 
 .modal-title {

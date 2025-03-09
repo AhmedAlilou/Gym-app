@@ -1,18 +1,40 @@
 import { create } from "zustand";
 
+const API_URL = "http://localhost:3000/workouts";
+
 export const useAddWorkoutStore = create((set) => ({
   currentWorkoutName: "",
   currentWorkoutDescription: "",
   currentExercises: [
     {
-      name: "",
+      name: "bench press",
       sets: [{ reps: 0, weight: 0 }]
     },
     {
-      name: "",
+      name: "tricep pushdown",
       sets: [{ reps: 0, weight: 0 }]
     }
   ],
+  changeSetReps: (newReps, exerciseIndex, setIndex) => {
+    set((state) => {
+      state.currentExercises[exerciseIndex].sets[setIndex] = {
+        reps: newReps,
+        weight: state.currentExercises[exerciseIndex].sets[setIndex].weight
+      };
+      console.log("state.currentExercises", state.currentExercises);
+      return state;
+    });
+  },
+  changeSetWeight: (newWeight, exerciseIndex, setIndex) => {
+    set((state) => {
+      state.currentExercises[exerciseIndex].sets[setIndex] = {
+        reps: state.currentExercises[exerciseIndex].sets[setIndex].reps,
+        weight: newWeight
+      };
+      console.log("state.currentExercises", state.currentExercises);
+      return state;
+    });
+  },
   addSet: (exerciseIndex) => {
     set((state) => {
       if (!state.currentExercises || !state.currentExercises[exerciseIndex]) {
@@ -36,6 +58,22 @@ export const useAddWorkoutStore = create((set) => ({
       currentExercises: [...state.currentExercises, newExercise]
     }));
   },
-  validWorkout: true,
-  setValidWorkout: (valid) => set({ validWorkout: valid })
+  setWorkoutName: (name) => set({ currentWorkoutName: name }),
+  setWorkoutDescription: (description) =>
+    set({ currentWorkoutDescription: description }),
+  saveWorkout: (title, description, exercises) => {
+    console.log("Saving workout...");
+    console.log("title, description, exercises", title, description, exercises);
+    fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        description: description,
+        exercises: exercises
+      })
+    });
+  }
 }));

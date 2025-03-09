@@ -16,7 +16,7 @@ function Setforms(props) {
     <div>
       {props.exercise.sets.map((set, index) => (
         <div key={index}>
-          <Setform index={index} />
+          <Setform index={index} exerciseIndex={props.exerciseIndex} />
         </div>
       ))}
       <button

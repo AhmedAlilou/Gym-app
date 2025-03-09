@@ -1,7 +1,21 @@
 import React from "react";
+import { useAddWorkoutStore } from "../../store/addworkoutStore";
 
 function Saveworkout() {
-  return <button className="saveworkout">Save Workout</button>;
+  const saveWorkout = useAddWorkoutStore((state) => state.saveWorkout);
+  const workoutName = useAddWorkoutStore((state) => state.currentWorkoutName);
+  const workoutDescription = useAddWorkoutStore(
+    (state) => state.currentWorkoutDescription
+  );
+  const exercises = useAddWorkoutStore((state) => state.currentExercises);
+  const handleSaveWorkout = () => {
+    saveWorkout(workoutName, workoutDescription, exercises);
+  };
+  return (
+    <button className="saveworkout" onClick={handleSaveWorkout}>
+      Save Workout
+    </button>
+  );
 }
 
 export default Saveworkout;

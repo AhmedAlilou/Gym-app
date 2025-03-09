@@ -1,6 +1,18 @@
 import React from "react";
+import { useAddWorkoutStore } from "../../store/addworkoutStore";
 
 function Descriptionform() {
+  const workoutDescription = useAddWorkoutStore(
+    (state) => state.currentWorkoutDescription
+  );
+  const setWorkoutDescription = useAddWorkoutStore(
+    (state) => state.setWorkoutDescription
+  );
+
+  const handleChange = (e) => {
+    setWorkoutDescription(e.target.value);
+  };
+
   return (
     <div className="flex-3">
       <label htmlFor="Description" className="block text-white mb-2">
@@ -10,6 +22,8 @@ function Descriptionform() {
         type="text"
         id="Description"
         name="Description"
+        value={workoutDescription}
+        onChange={handleChange}
         placeholder="Workout Description"
         className="w-full bg-neutral-700 text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-600"
       />
