@@ -7,11 +7,7 @@ export const useAddWorkoutStore = create((set) => ({
   currentWorkoutDescription: "",
   currentExercises: [
     {
-      name: "bench press",
-      sets: [{ reps: 0, weight: 0 }]
-    },
-    {
-      name: "tricep pushdown",
+      name: "",
       sets: [{ reps: 0, weight: 0 }]
     }
   ],
@@ -32,6 +28,12 @@ export const useAddWorkoutStore = create((set) => ({
         weight: newWeight
       };
       console.log("state.currentExercises", state.currentExercises);
+      return state;
+    });
+  },
+  changeExerciseName: (newName, exerciseIndex) => {
+    set((state) => {
+      state.currentExercises[exerciseIndex].name = newName;
       return state;
     });
   },

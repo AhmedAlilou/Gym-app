@@ -8,6 +8,7 @@ function Setform(props) {
 
   const changeSetReps = useAddWorkoutStore((state) => state.changeSetReps);
   const changeSetWeight = useAddWorkoutStore((state) => state.changeSetWeight);
+
   const handleRepChange = (e) => {
     console.log("e.target.value", e.target.value);
     changeSetReps(e.target.value, props.exerciseIndex, props.index);
