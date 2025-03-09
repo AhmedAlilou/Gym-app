@@ -17,18 +17,25 @@
   height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 2%;
   color: #fff;
+  position: relative;
+  gap: 2%;
+}
+
+.modal-title {
+  font-size: 2rem;
+  margin: 0;
 }
 
 .close {
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 1vw;
-  right: 1vw;
+  top: 20px;
+  right: 20px;
   background-color: #3b2a75;
   width: 5vh;
   height: 5vh;
@@ -40,6 +47,21 @@
 }
 
 .close:hover {
+  transition: 0.3s;
+  background-color: #543da2;
+}
+
+.saveworkout {
+  background-color: #3b2a75;
+  width: 20%;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.saveworkout:hover {
   transition: 0.3s;
   background-color: #543da2;
 }
