@@ -36,5 +36,9 @@ export const useWorkoutStore = create((set) => ({
   confirmDeleteModal: false,
   setConfirmDeleteModal: (value) => {
     set({ confirmDeleteModal: value });
+  },
+  currentWorkoutID: "",
+  setCurrentWorkoutID: (value) => {
+    set({ currentWorkoutID: value });
   }
 }));
