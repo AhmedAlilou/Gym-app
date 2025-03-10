@@ -17,7 +17,6 @@ export const useAddWorkoutStore = create((set) => ({
         reps: newReps,
         weight: state.currentExercises[exerciseIndex].sets[setIndex].weight
       };
-      console.log("state.currentExercises", state.currentExercises);
       return state;
     });
   },
@@ -27,7 +26,6 @@ export const useAddWorkoutStore = create((set) => ({
         reps: state.currentExercises[exerciseIndex].sets[setIndex].reps,
         weight: newWeight
       };
-      console.log("state.currentExercises", state.currentExercises);
       return state;
     });
   },
@@ -64,8 +62,6 @@ export const useAddWorkoutStore = create((set) => ({
   setWorkoutDescription: (description) =>
     set({ currentWorkoutDescription: description }),
   saveWorkout: (title, description, exercises) => {
-    console.log("Saving workout...");
-    console.log("title, description, exercises", title, description, exercises);
     fetch(API_URL, {
       method: "POST",
       headers: {

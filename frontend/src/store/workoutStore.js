@@ -32,5 +32,9 @@ export const useWorkoutStore = create((set) => ({
   newWorkout: false,
   setNewWorkout: (value) => {
     set({ newWorkout: value });
+  },
+  confirmDeleteModal: false,
+  setConfirmDeleteModal: (value) => {
+    set({ confirmDeleteModal: value });
   }
 }));

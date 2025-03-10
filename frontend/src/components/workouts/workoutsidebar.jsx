@@ -8,6 +8,7 @@ import { HiDocumentDuplicate } from "react-icons/hi2";
 function Workoutsidebar(props) {
   const handleDelete = () => {
     useWorkoutStore.getState().deleteWorkout(props.workout._id);
+    useWorkoutStore.getState().setConfirmDeleteModal(true);
   };
   return (
     <div className="options bg-[#29292a] w-[17%] align-center p-4 rounded-3xl">
