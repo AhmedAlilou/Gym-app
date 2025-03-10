@@ -14,10 +14,7 @@ function Addexercise() {
   };
 
   return (
-    <button
-      onClick={handleAddExercise}
-      className="flex items-center gap-2 bg-purple-600 px-4 py-2 rounded mt-4 hover:bg-purple-700 text-white"
-    >
+    <button onClick={handleAddExercise} className="button-primary">
       <FaPlus /> Add Exercise
     </button>
   );

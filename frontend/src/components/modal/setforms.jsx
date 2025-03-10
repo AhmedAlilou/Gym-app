@@ -15,15 +15,11 @@ function Setforms(props) {
   return (
     <div>
       {props.exercise.sets.map((set, index) => (
-        <div key={index}>
+        <div key={index} className="setform">
           <Setform index={index} exerciseIndex={props.exerciseIndex} />
         </div>
       ))}
-      <button
-        type="button"
-        onClick={handleAddSet}
-        className="bg-purple-600 px-4 py-2 rounded mt-2 hover:bg-purple-700"
-      >
+      <button type="button" onClick={handleAddSet} className="button-secondary">
         Add set
       </button>
     </div>

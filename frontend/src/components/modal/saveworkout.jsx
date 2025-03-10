@@ -12,7 +12,7 @@ function Saveworkout() {
     saveWorkout(workoutName, workoutDescription, exercises);
   };
   return (
-    <button className="saveworkout" onClick={handleSaveWorkout}>
+    <button onClick={handleSaveWorkout} className="button-primary">
       Save Workout
     </button>
   );

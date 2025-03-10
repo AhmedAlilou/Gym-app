@@ -22,10 +22,20 @@ function Setform(props) {
   // +1 because index starts at 0
 
   return (
-    <div>
+    <div className="set-form">
       set {props.index + 1}
-      <input type="number" placeholder="Reps" onChange={handleRepChange} />
-      <input type="number" placeholder="Weight" onChange={handleWeightChange} />
+      <input
+        type="number"
+        placeholder="Reps"
+        onChange={handleRepChange}
+        className="form-input"
+      />
+      <input
+        type="number"
+        placeholder="Weight"
+        onChange={handleWeightChange}
+        className="form-input"
+      />
     </div>
   );
 }

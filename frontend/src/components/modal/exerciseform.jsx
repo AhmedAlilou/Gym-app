@@ -18,6 +18,7 @@ function Exerciseform(props) {
         type="text"
         placeholder="Exercise Name"
         onChange={handleExerciseTitle}
+        className="form-input"
       />
       <Setforms exercise={exercise} exerciseIndex={props.index} />
     </div>
