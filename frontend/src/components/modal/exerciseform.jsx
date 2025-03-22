@@ -3,8 +3,9 @@ import { useAddWorkoutStore } from "../../store/addworkoutStore";
 
 function Exerciseform(props) {
   const exerciseID = props.exerciseID;
-  const exercises = useAddWorkoutStore((state) => state.currentExercises);
-  const exercise = exercises.find((x) => x.exerciseID === exerciseID);
+  const exercise = useAddWorkoutStore((state) =>
+    state.currentExercises.find((x) => x.exerciseID === exerciseID)
+  );
 
   const setExerciseName = useAddWorkoutStore((state) => state.setExerciseName);
 
@@ -13,14 +14,14 @@ function Exerciseform(props) {
   };
   return (
     <div className="exercise-form">
-      {exercise.name}
+      {exercise.name} {exerciseID}
       <input
         type="text"
         id="title"
         name="title"
         value={exercise.name}
         onChange={handleChange}
-        placeholder="Workout Title"
+        placeholder="Exercise Title"
         className="form-input"
       />
     </div>

@@ -12,11 +12,25 @@ export const useAddWorkoutStore = create((set) => ({
       sets: [{ setID: 0, reps: 0, weight: 0 }]
     },
     {
-      exerciseID: 5,
+      exerciseID: 1,
       name: "",
       sets: [{ setID: 0, reps: 0, weight: 0 }]
     }
   ],
+  currentID: 2,
+  addExercise: () =>
+    set((state) => ({
+      currentExercises: [
+        ...state.currentExercises,
+        {
+          exerciseID: state.currentID,
+          name: "",
+          sets: [{ setID: 0, reps: 0, weight: 0 }]
+        }
+      ],
+      currentID: state.currentID + 1
+    })),
+
   setExerciseName: (name, exerciseID) =>
     set((state) => ({
       currentExercises: state.currentExercises.map((exercise) =>

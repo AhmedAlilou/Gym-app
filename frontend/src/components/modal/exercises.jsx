@@ -1,6 +1,7 @@
 import React from "react";
 import { useAddWorkoutStore } from "../../store/addworkoutStore";
 import Exerciseform from "./exerciseform";
+import Addexercise from "./addexercise";
 
 function Exercises() {
   const currentExercises = useAddWorkoutStore(
@@ -14,6 +15,7 @@ function Exercises() {
           exerciseID={exercise.exerciseID}
         />
       ))}
+      <Addexercise />
     </div>
   );
 }
