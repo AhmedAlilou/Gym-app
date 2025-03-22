@@ -7,60 +7,21 @@ export const useAddWorkoutStore = create((set) => ({
   currentWorkoutDescription: "",
   currentExercises: [
     {
+      exerciseID: 0,
       name: "",
-      sets: [{ reps: 0, weight: 0 }]
+      sets: [{ setID: 0, reps: 0, weight: 0 }]
+    },
+    {
+      exerciseID: 5,
+      name: "",
+      sets: [{ setID: 0, reps: 0, weight: 0 }]
     }
   ],
-  changeSetReps: (newReps, exerciseIndex, setIndex) => {
-    set((state) => {
-      state.currentExercises[exerciseIndex].sets[setIndex] = {
-        reps: newReps,
-        weight: state.currentExercises[exerciseIndex].sets[setIndex].weight
-      };
-      return state;
-    });
-  },
-  changeSetWeight: (newWeight, exerciseIndex, setIndex) => {
-    set((state) => {
-      state.currentExercises[exerciseIndex].sets[setIndex] = {
-        reps: state.currentExercises[exerciseIndex].sets[setIndex].reps,
-        weight: newWeight
-      };
-      return state;
-    });
-  },
-  changeExerciseName: (newName, exerciseIndex) => {
-    set((state) => {
-      state.currentExercises[exerciseIndex].name = newName;
-      return state;
-    });
-  },
-  addSet: (exerciseIndex) => {
-    set((state) => {
-      if (!state.currentExercises || !state.currentExercises[exerciseIndex]) {
-        console.error("Invalid exercise or exercise index");
-        return state;
-      }
 
-      const newExercises = [...state.currentExercises];
-      const targetExercise = newExercises[exerciseIndex];
-
-      newExercises[exerciseIndex] = {
-        ...targetExercise,
-        sets: [...targetExercise.sets, { reps: 0, weight: 0 }]
-      };
-
-      return { currentExercises: newExercises };
-    });
-  },
-  addExercise: (newExercise) => {
-    set((state) => ({
-      currentExercises: [...state.currentExercises, newExercise]
-    }));
-  },
   setWorkoutName: (name) => set({ currentWorkoutName: name }),
   setWorkoutDescription: (description) =>
     set({ currentWorkoutDescription: description }),
+
   saveWorkout: (title, description, exercises) => {
     fetch(API_URL, {
       method: "POST",

@@ -6,7 +6,6 @@ function Addworkout() {
   const { newWorkout, setNewWorkout } = useWorkoutStore();
   const handleAddWorkout = () => {
     setNewWorkout(true);
-    console.log(newWorkout);
   };
   return (
     <button className="addworkout" onClick={handleAddWorkout}>

@@ -1,26 +1,21 @@
 import React from "react";
 import { useAddWorkoutStore } from "../../store/addworkoutStore";
 import Exerciseform from "./exerciseform";
-import Addexercise from "./addexercise";
 
-function Exercisesforms() {
+function Exercises() {
   const currentExercises = useAddWorkoutStore(
     (state) => state.currentExercises
   );
-
   return (
-    <div>
-      {currentExercises.map((exercise, index, sets) => (
+    <div className="exercises">
+      {currentExercises.map((exercise) => (
         <Exerciseform
-          key={index}
-          exercise={exercise}
-          sets={sets}
-          index={index}
+          key={exercise.exerciseID}
+          exerciseID={exercise.exerciseID}
         />
       ))}
-      <Addexercise />
     </div>
   );
 }
 
-export default Exercisesforms;
+export default Exercises;
