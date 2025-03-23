@@ -1,6 +1,7 @@
 import React from "react";
 import Setform from "./setform";
 import Addset from "./addset";
+import Deleteset from "./deleteset";
 import { useAddWorkoutStore } from "../../store/addworkoutStore";
 
 function Exerciseform(props) {
@@ -32,6 +33,7 @@ function Exerciseform(props) {
         ))}
       </div>
       <Addset exerciseID={exerciseID} />
+      <Deleteset exerciseID={exerciseID} exercise={exercise} />
     </div>
   );
 }

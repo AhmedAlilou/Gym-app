@@ -54,6 +54,17 @@ export const useAddWorkoutStore = create((set) => ({
       })
     })),
 
+  deleteSet: (exerciseID) =>
+    set((state) => {
+      return {
+        currentExercises: state.currentExercises.map((exercise) => {
+          if (exercise.exerciseID === exerciseID) {
+            return { ...exercise, sets: exercise.sets.slice(0, -1) };
+          }
+          return exercise;
+        })
+      };
+    }),
   setExerciseName: (name, exerciseID) =>
     set((state) => ({
       currentExercises: state.currentExercises.map((exercise) =>
