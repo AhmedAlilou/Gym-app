@@ -1,4 +1,5 @@
 import React from "react";
+import Setform from "./setform";
 import { useAddWorkoutStore } from "../../store/addworkoutStore";
 
 function Exerciseform(props) {
@@ -24,6 +25,11 @@ function Exerciseform(props) {
         placeholder="Exercise Title"
         className="form-input"
       />
+      <div className="sets">
+        {exercise.sets.map((set) => (
+          <Setform key={set.setID} set={set} />
+        ))}
+      </div>
     </div>
   );
 }
