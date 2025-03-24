@@ -15,12 +15,43 @@ function Saveworkout() {
 
   const saveWorkout = useAddWorkoutStore((state) => state.saveWorkout);
 
+  const checkIfValid = () => {
+    if (
+      !currentWorkoutName ||
+      currentWorkoutName === "" ||
+      !currentWorkoutDescription ||
+      currentWorkoutDescription === ""
+    ) {
+      return false;
+    }
+    for (let i = 0; i < currentExercises.length; i++) {
+      if (!currentExercises[i].name || currentExercises[i].name === "") {
+        return false;
+      }
+      for (let j = 0; j < currentExercises[i].sets.length; j++) {
+        if (
+          !currentExercises[i].sets[j].reps ||
+          currentExercises[i].sets[j].reps === ""
+        ) {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+
+  const alert = () => {
+    return;
+  };
+
   const handleSave = () => {
-    saveWorkout(
-      currentWorkoutName,
-      currentWorkoutDescription,
-      currentExercises
-    );
+    checkIfValid()
+      ? saveWorkout(
+          currentWorkoutName,
+          currentWorkoutDescription,
+          currentExercises
+        )
+      : alert();
   };
   return (
     <button
