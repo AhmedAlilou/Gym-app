@@ -1,8 +1,9 @@
 import React from "react";
 import Setform from "./setform";
 import Addset from "./addset";
-import Deleteset from "./deleteset";
+import Deleteset from "./delete/deleteset";
 import { useAddWorkoutStore } from "../../store/addworkoutStore";
+import Deleteexercise from "./delete/deleteexercise";
 
 function Exerciseform(props) {
   const exerciseID = props.exerciseID;
@@ -34,6 +35,7 @@ function Exerciseform(props) {
       </div>
       <Addset exerciseID={exerciseID} />
       <Deleteset exerciseID={exerciseID} exercise={exercise} />
+      <Deleteexercise exerciseID={exerciseID} exercise={exercise} />
     </div>
   );
 }

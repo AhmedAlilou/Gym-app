@@ -1,5 +1,5 @@
 import React from "react";
-import { useAddWorkoutStore } from "../../store/addworkoutStore";
+import { useAddWorkoutStore } from "../../../store/addworkoutStore";
 
 function Deleteset(props) {
   const exercise = props.exercise;
