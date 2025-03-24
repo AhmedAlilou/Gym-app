@@ -14,11 +14,16 @@ function Exerciseform(props) {
   const setExerciseName = useAddWorkoutStore((state) => state.setExerciseName);
 
   const handleChange = (e) => {
-    setExerciseName(e.target.value, exerciseID);
+    if (e.target.value === "") {
+      setExerciseName("", exerciseID);
+    } else {
+      setExerciseName(e.target.value, exerciseID);
+    }
   };
+
   return (
     <div className="exercise-form">
-      {exercise.name} {exerciseID}
+      {exercise.name || "No Name"}
       <input
         type="text"
         id="title"

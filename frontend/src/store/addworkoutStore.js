@@ -9,12 +9,12 @@ export const useAddWorkoutStore = create((set) => ({
     {
       exerciseID: 0,
       name: "",
-      sets: [{ setID: 0, reps: null, weight: null }]
+      sets: [{ setID: 0, reps: "", weight: "" }]
     },
     {
       exerciseID: 1,
       name: "",
-      sets: [{ setID: 0, reps: null, weight: null }]
+      sets: [{ setID: 0, reps: "", weight: "" }]
     }
   ],
   currentID: 2,
@@ -25,7 +25,7 @@ export const useAddWorkoutStore = create((set) => ({
         {
           exerciseID: state.currentID,
           name: "",
-          sets: [{ setID: 0, reps: null, weight: null }]
+          sets: [{ setID: 0, reps: "", weight: "" }]
         }
       ],
       currentID: state.currentID + 1
@@ -53,7 +53,7 @@ export const useAddWorkoutStore = create((set) => ({
             ...exercise,
             sets: [
               ...exercise.sets,
-              { setID: maxSetID + 1, reps: null, weight: null }
+              { setID: maxSetID + 1, reps: "", weight: "" }
             ]
           };
         }
@@ -113,6 +113,17 @@ export const useAddWorkoutStore = create((set) => ({
     set({ currentWorkoutDescription: description }),
 
   saveWorkout: (title, description, exercises) => {
+    set((state) => ({
+      currentWorkoutName: "",
+      currentWorkoutDescription: "",
+      currentExercises: [
+        {
+          exerciseID: 0,
+          name: "",
+          sets: [{ setID: 0, reps: "", weight: "" }]
+        }
+      ]
+    }));
     fetch(API_URL, {
       method: "POST",
       headers: {
