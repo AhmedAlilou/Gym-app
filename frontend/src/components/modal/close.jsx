@@ -10,7 +10,7 @@ function Close() {
   return (
     <button
       onClick={handleClose}
-      className="close-button"
+      className="close-button absolute top-4 right-4"
       aria-label="Close modal"
     >
       <IoClose />

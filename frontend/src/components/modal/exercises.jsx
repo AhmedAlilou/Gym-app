@@ -8,7 +8,7 @@ function Exercises() {
     (state) => state.currentExercises
   );
   return (
-    <div className="exercises">
+    <div className="exercises justify-center mx-auto ">
       {currentExercises.map((exercise) => (
         <Exerciseform
           key={exercise.exerciseID}

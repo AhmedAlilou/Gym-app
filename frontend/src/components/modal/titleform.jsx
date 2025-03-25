@@ -10,8 +10,8 @@ function Titleform() {
   };
 
   return (
-    <div className="flex-2">
-      <label htmlFor="title" className="form-label">
+    <div className="flex flex-col gap-2 mb-4">
+      <label htmlFor="title" className="text-sm font-medium text-gray-300">
         Title
       </label>
       <input
@@ -21,7 +21,7 @@ function Titleform() {
         value={workoutName}
         onChange={handleChange}
         placeholder="Workout Title"
-        className="form-input"
+        className="w-full p-3 bg-gray-900 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
       />
     </div>
   );

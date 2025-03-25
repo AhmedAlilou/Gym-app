@@ -16,12 +16,7 @@ function Saveworkout() {
   const saveWorkout = useAddWorkoutStore((state) => state.saveWorkout);
 
   const checkIfValid = () => {
-    if (
-      !currentWorkoutName ||
-      currentWorkoutName === "" ||
-      !currentWorkoutDescription ||
-      currentWorkoutDescription === ""
-    ) {
+    if (!currentWorkoutName || currentWorkoutName === "") {
       return false;
     }
     for (let i = 0; i < currentExercises.length; i++) {
