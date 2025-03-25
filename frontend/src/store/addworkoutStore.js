@@ -10,11 +10,6 @@ export const useAddWorkoutStore = create((set) => ({
       exerciseID: 0,
       name: "",
       sets: [{ setID: 0, reps: "", weight: "" }]
-    },
-    {
-      exerciseID: 1,
-      name: "",
-      sets: [{ setID: 0, reps: "", weight: "" }]
     }
   ],
   currentID: 2,

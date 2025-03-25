@@ -41,7 +41,7 @@ function Saveworkout() {
   };
 
   const alert = () => {
-    return;
+    window.alert("Missing information for the Workout");
   };
 
   const handleSave = () => {
