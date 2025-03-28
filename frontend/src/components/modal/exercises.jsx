@@ -8,14 +8,18 @@ function Exercises() {
     (state) => state.currentExercises
   );
   return (
-    <div className="exercises justify-center mx-auto ">
-      {currentExercises.map((exercise) => (
-        <Exerciseform
-          key={exercise.exerciseID}
-          exerciseID={exercise.exerciseID}
-        />
-      ))}
-      <Addexercise />
+    <div className="flex flex-col space-y-6 w-full">
+      <div className="flex flex-col space-y-4">
+        {currentExercises.map((exercise) => (
+          <Exerciseform
+            key={exercise.exerciseID}
+            exerciseID={exercise.exerciseID}
+          />
+        ))}
+      </div>
+      <div className="flex justify-center pt-4">
+        <Addexercise />
+      </div>
     </div>
   );
 }
