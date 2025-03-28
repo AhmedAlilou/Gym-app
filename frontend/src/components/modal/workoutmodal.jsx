@@ -10,7 +10,7 @@ function Workoutmodal() {
   return newWorkout ? (
     <div className="modal backdrop-blur-sm w-full h-full">
       <div className="modalbox relative flex flex-col w-[80vw] h-[80vh] bg-[#19191f]">
-        <div className="modal-title text-white mx-auto font-bold">
+        <div className="text-2xl text-white font-bold py-6 text-center border-b border-purple-700/30">
           Add Workout
         </div>
         <Close />

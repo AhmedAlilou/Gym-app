@@ -51,7 +51,7 @@ function Saveworkout() {
   return (
     <button
       onClick={handleSave}
-      className="save-workout bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      className="save-workout bg-[#3b2a75] hover:bg-[#543da2] text-white font-bold py-2 px-4 rounded"
     >
       Save Workout
     </button>

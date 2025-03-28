@@ -21,7 +21,7 @@ function Titleform() {
         value={workoutName}
         onChange={handleChange}
         placeholder="Workout Title"
-        className="w-full p-3 bg-gray-900 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+        className="w-full p-3 bg-[rgb(20, 20, 26, 1)] text-white border border-purple-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
       />
     </div>
   );

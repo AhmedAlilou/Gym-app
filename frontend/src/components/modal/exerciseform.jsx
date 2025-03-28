@@ -22,7 +22,7 @@ function Exerciseform(props) {
   };
 
   return (
-    <div className="bg-purple-900/30 rounded-lg p-6 space-y-4">
+    <div className="bg-[rgb(38, 38, 38, 1)] rounded-lg p-6 space-y-4">
       <div className="text-lg font-medium text-gray-200">
         {exercise?.name || "No Name"}
       </div>
@@ -33,7 +33,7 @@ function Exerciseform(props) {
         value={exercise?.name || ""}
         onChange={handleChange}
         placeholder="Exercise Title"
-        className="w-full p-3 bg-purple-900/20 text-white border border-purple-700/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+        className="w-full p-3 bg-purple-[rgb(38, 38, 38, 1)] text-white border border-purple-700/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
       />
       <div className="space-y-3">
         {exercise?.sets.map((set) => (
