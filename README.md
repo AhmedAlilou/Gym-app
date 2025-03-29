@@ -19,3 +19,18 @@ A simple workout tracking app built using the **MERN stack** (MongoDB, Express, 
 - **Backend:** Node.js, Express.js, MongoDB (Mongoose)
 - **Frontend:** React
 - **Database:** MongoDB
+
+---
+
+## 🚧 Project Status
+
+> ### 🏗️ Under Construction!
+>
+> This project is actively being developed with new features coming soon:
+>
+> - 📱 Mobile-responsive design
+> - 🔐 User authentication
+> - 📊 Workout history tracking
+> - 📈 Progress visualization
+>
+> Stay tuned for updates! 🎉
