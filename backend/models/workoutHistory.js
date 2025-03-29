@@ -3,10 +3,15 @@ const Schema = mongoose.Schema;
 
 const workoutHistorySchema = new Schema(
   {
-    workoutId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Workout",
-      required: true
+    workoutData: {
+      title: { type: String, required: true },
+      description: { type: String },
+      // Store the original workoutId for reference but don't rely on it
+      originalWorkoutId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Workout",
+        required: true
+      }
     },
     date: {
       type: Date,

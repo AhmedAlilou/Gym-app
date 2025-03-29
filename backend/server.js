@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const workoutRoutes = require("./routes/workouts");
+const workoutHistoryRoutes = require("./routes/workoutHistory");
 
 const PORT = process.env.PORT || 3000;
 const URI = process.env.MONGO_URI;
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/workouts", workoutRoutes);
+app.use("/workoutHistory", workoutHistoryRoutes);
 
 mongoose
   .connect(URI)
