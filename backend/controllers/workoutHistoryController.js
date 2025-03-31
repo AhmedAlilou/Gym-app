@@ -65,8 +65,29 @@ const createWorkoutHistory = async (req, res) => {
   }
 };
 
+const deleteWorkoutHistory = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: "Invalid workout history ID" });
+  }
+
+  try {
+    const workoutHistory = await WorkoutHistory.findByIdAndDelete(id);
+
+    if (!workoutHistory) {
+      return res.status(404).json({ error: "Workout history not found" });
+    }
+
+    res.status(200).json(workoutHistory);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getWorkoutHistories,
   getWorkoutHistory,
-  createWorkoutHistory
+  createWorkoutHistory,
+  deleteWorkoutHistory
 };
