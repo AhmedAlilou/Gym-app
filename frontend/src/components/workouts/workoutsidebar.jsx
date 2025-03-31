@@ -28,7 +28,7 @@ function Workoutsidebar(props) {
         <MdDelete className="icon" />
         Delete
       </button>
-      <button onClick={handleDelete} className="option">
+      <button className="option">
         <HiDocumentDuplicate className="icon" />
         Duplicate
       </button>
