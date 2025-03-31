@@ -2,6 +2,8 @@ import { create } from "zustand";
 const API_URL = "http://localhost:3000/workoutHistories";
 
 export const useWorkoutHistoryStore = create((set) => ({
+  currentWorkout: {},
+  setCurrentWorkout: (workout) => set({ currentWorkout: workout }),
   workoutHistory: [],
   getWorkoutHistories: () => {
     fetch(`${API_URL}`)

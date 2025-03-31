@@ -1,25 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "../components/navbar";
-import { useWorkoutStore } from "../store/workoutStore.js";
+import Workoutsidebar from "../components/startWorkout/workoutsidebar.jsx";
+import Currentworkout from "../components/startWorkout/currentWorkout.jsx";
 
 function Startworkout() {
-  const { workouts, getWorkouts } = useWorkoutStore();
-  useEffect(() => {
-    getWorkouts();
-  }, [workouts]);
   return (
-    <>
+    <div className="h-screen flex flex-col">
       <Navbar />
-      <div className="title">Start workout</div>
-      <div className="workouts">
-        {workouts.map((workout) => (
-          <div key={workout._id} className="workout-card text-white">
-            <h3>{workout.title}</h3>
-            <p>{workout.description}</p>
-          </div>
-        ))}
+      <div className="flex-1 flex gap-4 p-4 overflow-hidden">
+        <Workoutsidebar />
+        <Currentworkout />
       </div>
-    </>
+    </div>
   );
 }
 
