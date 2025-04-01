@@ -16,6 +16,11 @@ export const useWorkoutHistoryStore = create((set) => ({
       });
   },
 
+  workoutActive: false,
+  setWorkoutActive: (value) => {
+    set({ workoutActive: value });
+  },
+
   deleteWorkoutHistory: (workoutHistoryid) => {
     fetch(`${API_URL}/${workoutHistoryid}`, {
       method: "DELETE"
