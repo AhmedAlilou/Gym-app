@@ -3,11 +3,12 @@ import Box from "./box.jsx";
 
 function Set(props) {
   const set = props.set;
+  const exercise = props.exercise;
   console.log(set);
   return (
-    <div className="text-white">
+    <div className="text-white flex flex-row gap-2 align-center">
+      <Box exercise={exercise} exerciseBox={false} />
       Reps: {set.reps} Sets: {set.weight}
-      <Box />
     </div>
   );
 }
