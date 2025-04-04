@@ -1,5 +1,5 @@
 import { create } from "zustand";
-const API_URL = "http://localhost:3000/workoutHistories";
+const API_URL = "http://localhost:3000/workoutHistory";
 
 export const useWorkoutHistoryStore = create((set) => ({
   currentWorkout: {},
@@ -28,6 +28,38 @@ export const useWorkoutHistoryStore = create((set) => ({
         }))
       }
     })),
+  setCurrentWorkoutDate: (date) => {
+    set((state) => ({
+      currentWorkout: {
+        ...state.currentWorkout,
+        date: date
+      }
+    }));
+  },
+  setCurrentWorkoutTimeStart: (timeStart) => {
+    set((state) => ({
+      currentWorkout: {
+        ...state.currentWorkout,
+        timeStart: timeStart
+      }
+    }));
+  },
+  setCurrentWorkoutTimeEnd: (timeEnd) => {
+    set((state) => ({
+      currentWorkout: {
+        ...state.currentWorkout,
+        timeEnd: timeEnd
+      }
+    }));
+  },
+  setCurrentWorkoutId: (workoutID) => {
+    set((state) => ({
+      currentWorkout: {
+        ...state.currentWorkout,
+        workoutId: workoutID
+      }
+    }));
+  },
   checkSet: (exerciseID, setID) =>
     set((state) => ({
       currentWorkout: {
@@ -71,6 +103,24 @@ export const useWorkoutHistoryStore = create((set) => ({
   workoutActive: false,
   setWorkoutActive: (value) => {
     set({ workoutActive: value });
+  },
+  endWorkout: (workout) => {
+    fetch(`${API_URL}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(workout)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        set((state) => ({
+          workoutHistory: [...state.workoutHistory, data]
+        }));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   deleteWorkoutHistory: (workoutHistoryid) => {
     fetch(`${API_URL}/${workoutHistoryid}`, {

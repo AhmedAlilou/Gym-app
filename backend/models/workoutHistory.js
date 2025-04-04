@@ -43,7 +43,11 @@ const workoutHistorySchema = new Schema(
       {
         name: { type: String, required: true },
         sets: [
-          { reps: { type: Number, required: true }, weight: { type: Number } }
+          {
+            isChecked: { type: Boolean, required: true },
+            reps: { type: Number, required: true },
+            weight: { type: Number }
+          }
         ]
       }
     ]

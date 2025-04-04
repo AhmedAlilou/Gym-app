@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import Workoutsidebar from "../components/startWorkout/workoutsidebar.jsx";
-import Currentworkout from "../components/startWorkout/currentWorkout.jsx";
+import Currentworkout from "../components/startWorkout/currentworkout.jsx";
 
 function Startworkout() {
   return (
