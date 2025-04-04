@@ -48,6 +48,26 @@ export const useWorkoutHistoryStore = create((set) => ({
         })
       }
     })),
+  checkExercise: (exerciseId) =>
+    set((state) => ({
+      currentWorkout: {
+        ...state.currentWorkout,
+        exercises: state.currentWorkout.exercises.map((exercise) => {
+          if (exercise._id === exerciseId) {
+            // Check if all sets are currently checked
+            const allChecked = exercise.sets.every((set) => set.isChecked);
+            return {
+              ...exercise,
+              sets: exercise.sets.map((set) => ({
+                ...set,
+                isChecked: !allChecked // Toggle all sets opposite to current state
+              }))
+            };
+          }
+          return exercise;
+        })
+      }
+    })),
   workoutActive: false,
   setWorkoutActive: (value) => {
     set({ workoutActive: value });
