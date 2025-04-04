@@ -28,11 +28,30 @@ export const useWorkoutHistoryStore = create((set) => ({
         }))
       }
     })),
+  checkSet: (exerciseID, setID) =>
+    set((state) => ({
+      currentWorkout: {
+        ...state.currentWorkout,
+        exercises: state.currentWorkout.exercises.map((exercise) => {
+          if (exercise._id === exerciseID) {
+            return {
+              ...exercise,
+              sets: exercise.sets.map((set) => {
+                if (set._id === setID) {
+                  return { ...set, isChecked: !set.isChecked };
+                }
+                return set; // Return unchanged set if ID doesn't match
+              })
+            };
+          }
+          return exercise; // Return unchanged exercise if ID doesn't match
+        })
+      }
+    })),
   workoutActive: false,
   setWorkoutActive: (value) => {
     set({ workoutActive: value });
   },
-
   deleteWorkoutHistory: (workoutHistoryid) => {
     fetch(`${API_URL}/${workoutHistoryid}`, {
       method: "DELETE"
