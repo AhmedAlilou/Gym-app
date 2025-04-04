@@ -15,7 +15,19 @@ export const useWorkoutHistoryStore = create((set) => ({
         console.log(err);
       });
   },
-
+  setCurrentWorkoutBoxes: () =>
+    set((state) => ({
+      currentWorkout: {
+        ...state.currentWorkout,
+        exercises: state.currentWorkout.exercises.map((exercise) => ({
+          ...exercise,
+          sets: exercise.sets.map((set) => ({
+            ...set,
+            isChecked: false
+          }))
+        }))
+      }
+    })),
   workoutActive: false,
   setWorkoutActive: (value) => {
     set({ workoutActive: value });

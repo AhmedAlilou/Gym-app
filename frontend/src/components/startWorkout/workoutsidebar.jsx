@@ -6,20 +6,33 @@ import "./styles/styles.css";
 function Workoutsidebar() {
   const workouts = useWorkoutStore((state) => state.workouts);
   const getWorkouts = useWorkoutStore((state) => state.getWorkouts);
+  const currentWorkout = useWorkoutHistoryStore(
+    (state) => state.currentWorkout
+  );
   const setCurrentWorkout = useWorkoutHistoryStore(
     (state) => state.setCurrentWorkout
+  );
+  const setCurrentWorkoutBoxes = useWorkoutHistoryStore(
+    (state) => state.setCurrentWorkoutBoxes
   );
   useEffect(() => {
     getWorkouts();
   }, []);
 
   const handleWorkoutClick = (workoutID) => {
-    workouts.forEach((workout) => {
-      if (workout._id === workoutID) {
-        setCurrentWorkout(workout);
-      }
-    });
+    const selectedWorkout = workouts.find(
+      (workout) => workout._id === workoutID
+    );
+    if (selectedWorkout) {
+      setCurrentWorkout(selectedWorkout);
+      setCurrentWorkoutBoxes();
+    }
   };
+
+  // If you want to see state changes, use useEffect
+  useEffect(() => {
+    console.log("Current workout updated:", currentWorkout);
+  }, [currentWorkout]);
 
   return (
     <div className="w-[24vw] h-full bg-[#1f1f1f] rounded-lg flex flex-col">
