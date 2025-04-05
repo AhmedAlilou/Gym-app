@@ -60,26 +60,29 @@ export const useWorkoutHistoryStore = create((set) => ({
       }
     }));
   },
-  checkSet: (exerciseID, setID) =>
-    set((state) => ({
-      currentWorkout: {
-        ...state.currentWorkout,
-        exercises: state.currentWorkout.exercises.map((exercise) => {
-          if (exercise._id === exerciseID) {
-            return {
-              ...exercise,
-              sets: exercise.sets.map((set) => {
-                if (set._id === setID) {
-                  return { ...set, isChecked: !set.isChecked };
-                }
-                return set; // Return unchanged set if ID doesn't match
-              })
-            };
-          }
-          return exercise; // Return unchanged exercise if ID doesn't match
-        })
-      }
-    })),
+  checkSet: (exerciseId, setId) =>
+    set((state) => {
+      const exercise = state.currentWorkout.exercises.find(
+        (e) => e._id === exerciseId
+      );
+      if (!exercise) return state;
+
+      const updatedExercise = {
+        ...exercise,
+        sets: exercise.sets.map((s) =>
+          s._id === setId ? { ...s, isChecked: !s.isChecked } : s
+        )
+      };
+
+      return {
+        currentWorkout: {
+          ...state.currentWorkout,
+          exercises: state.currentWorkout.exercises.map((e) =>
+            e._id === exerciseId ? updatedExercise : e
+          )
+        }
+      };
+    }),
   checkExercise: (exerciseId) =>
     set((state) => ({
       currentWorkout: {

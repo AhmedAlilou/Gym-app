@@ -20,6 +20,9 @@ function Workoutsidebar() {
     const selectedWorkout = workouts.find(
       (workout) => workout._id === workoutID
     );
+    if (workoutActive) {
+      return;
+    }
     if (selectedWorkout) {
       setCurrentWorkout(selectedWorkout);
       setCurrentWorkoutBoxes();
