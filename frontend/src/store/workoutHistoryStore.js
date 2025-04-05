@@ -4,7 +4,7 @@ const API_URL = "http://localhost:3000/workoutHistory";
 export const useWorkoutHistoryStore = create((set) => ({
   currentWorkout: {},
   setCurrentWorkout: (workout) => set({ currentWorkout: workout }),
-  workoutHistory: [],
+  workoutHistory: undefined,
   getWorkoutHistories: () => {
     fetch(`${API_URL}`)
       .then((res) => res.json())

@@ -7,6 +7,7 @@ function Navbar() {
       <Navbarbutton to="/" name="Home" />
       <Navbarbutton to="/workouts" name="Workouts" />
       <Navbarbutton to="/startworkout" name="Start workout" />
+      <Navbarbutton to="/progress" name="Progress" />
     </div>
   );
 }
