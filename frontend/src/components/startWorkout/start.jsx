@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useWorkoutHistoryStore } from "../../store/workoutHistoryStore.js";
 
 function Start() {
-  const [elapsedTime, setElapsedTime] = useState(0);
   const workoutActive = useWorkoutHistoryStore((state) => state.workoutActive);
+  const elapsedTime = useWorkoutHistoryStore((state) => state.elapsedTime);
+  const incrementTime = useWorkoutHistoryStore((state) => state.incrementTime);
   const setWorkoutActive = useWorkoutHistoryStore(
     (state) => state.setWorkoutActive
   );
@@ -19,20 +20,16 @@ function Start() {
 
     if (workoutActive) {
       intervalId = setInterval(() => {
-        setElapsedTime((prev) => prev + 1);
+        incrementTime();
       }, 1000);
-    } else {
-      // Reset timer when workout becomes inactive
-      setElapsedTime(0);
     }
 
-    // Cleanup function
     return () => {
       if (intervalId) {
         clearInterval(intervalId);
       }
     };
-  }, [workoutActive]); // Only re-run when workoutActive changes
+  }, [workoutActive, incrementTime]);
 
   const formatTime = (seconds) => {
     const hours = Math.floor(seconds / 3600);
@@ -49,7 +46,6 @@ function Start() {
     setCurrentWorkoutTimeStart(
       new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
     );
-    setElapsedTime(0);
   };
 
   if (workoutActive) {

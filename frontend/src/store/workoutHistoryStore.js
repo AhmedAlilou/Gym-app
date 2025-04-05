@@ -105,7 +105,11 @@ export const useWorkoutHistoryStore = create((set) => ({
     })),
   workoutActive: false,
   setWorkoutActive: (value) => {
-    set({ workoutActive: value });
+    set((state) => ({
+      workoutActive: value,
+      // Reset timer when workout becomes inactive
+      elapsedTime: value ? state.elapsedTime : 0
+    }));
   },
   endWorkout: (workout) => {
     fetch(`${API_URL}`, {
@@ -140,5 +144,10 @@ export const useWorkoutHistoryStore = create((set) => ({
       .catch((err) => {
         console.log(err);
       });
-  }
+  },
+  // Add timer state
+  elapsedTime: 0,
+  setElapsedTime: (time) => set({ elapsedTime: time }),
+  incrementTime: () => set((state) => ({ elapsedTime: state.elapsedTime + 1 })),
+  resetTime: () => set({ elapsedTime: 0 })
 }));

@@ -12,6 +12,7 @@ function Workoutsidebar() {
   const setCurrentWorkoutBoxes = useWorkoutHistoryStore(
     (state) => state.setCurrentWorkoutBoxes
   );
+  const workoutActive = useWorkoutHistoryStore((state) => state.workoutActive);
   useEffect(() => {
     getWorkouts();
   }, []);
