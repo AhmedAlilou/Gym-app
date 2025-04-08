@@ -15,10 +15,16 @@ function Previousworkouts() {
   console.log(workoutHistory);
   return (
     <div>
-      Previous Workouts
       {workoutHistory &&
-        workoutHistory.map((workout) => {
-          return <Workoutinstance workoutID={workout._id} workout={workout} />;
+        workoutHistory.map((workout, key) => {
+          return (
+            <Workoutinstance
+              key={key}
+              workoutID={workout._id}
+              workout={workout}
+              title={workout.title}
+            />
+          );
         })}
     </div>
   );

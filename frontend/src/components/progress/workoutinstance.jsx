@@ -1,29 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import Workoutdate from "./workoutdate";
+import ExerciseInstance from "./exerciseInstance";
+import { FaChevronDown } from "react-icons/fa";
+import Workoutduration from "./workoutduration";
 
 function Workoutinstance({ workout }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    <div className="bg-gray-800/50 rounded-lg p-4 text-white">
-      {workout.exercises
-        .filter((exercise) => exercise.sets.some((set) => set.isChecked))
-        .map((exercise) => (
-          <div key={exercise._id} className="mb-4 last:mb-0">
-            <h3 className="text-lg font-semibold mb-2">{exercise.name}</h3>
-            <div className="text-sm text-gray-400 mb-2">Completed Sets:</div>
-            <div className="grid grid-cols-2 gap-2">
-              {exercise.sets
-                .filter((set) => set.isChecked)
-                .map((set) => (
-                  <div
-                    key={set._id}
-                    className="bg-gray-700/50 p-3 rounded-md flex flex-col gap-1"
-                  >
-                    <p className="text-purple-400">Weight: {set.weight}kg</p>
-                    <p className="text-purple-300">Reps: {set.reps}</p>
-                  </div>
-                ))}
-            </div>
-          </div>
-        ))}
+    <div className="bg-[#29292a] border-2 border-transparent hover:border-[#3b2a75] rounded-lg p-4 text-white mb-5 w-[90vw] m-auto transition duration-300 ease-in-out">
+      <div
+        className="flex justify-between items-center cursor-pointer"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <h2 className="text-2xl font-semibold">
+          {workout.workoutData.title}
+          <Workoutdate workout={workout} />
+          <Workoutduration workout={workout} />
+        </h2>
+        <FaChevronDown
+          className={`text-xl text-white transition-transform duration-300 ${
+            isExpanded ? "rotate-180" : ""
+          }`}
+        />
+      </div>
+
+      {isExpanded && (
+        <div className="mt-4 space-y-4">
+          {workout.exercises
+            .filter((exercise) => exercise.sets.some((set) => set.isChecked))
+            .map((exercise) => (
+              <ExerciseInstance key={exercise._id} exercise={exercise} />
+            ))}
+        </div>
+      )}
     </div>
   );
 }
